@@ -47,7 +47,6 @@ const self = (module.exports = {
 
       if(withBody) {
         let { schoolName, schoolCity } = req.body
-        console.log(schoolName)
         if(validator.isEmpty(schoolName === undefined ? '' : schoolName, { ignore_whitespace: true })) {
           errorMessage = "The school name field is require."
         } else if(validator.isEmpty(schoolCity === undefined ? '' : schoolCity, { ignore_whitespace: true })) {
@@ -68,7 +67,7 @@ const self = (module.exports = {
           })
 
           if(checkUnique) {
-            errorMessage = "The school name field is already exits."
+            errorMessage = "This School name is already exist."
           }
         }
       }

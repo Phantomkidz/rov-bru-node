@@ -5,7 +5,7 @@ const Match = require('../functions/MatchResult')
 
 router.get('/', async (req, res) => {
   let results = await MatchDetail.getMatchDetail(req)
-  // results = await MatchDetail.setMatchDetail(results)
+  results = await MatchDetail.setMatchDetail(results)
   res.status(200).send({
     status: 200,
     message: 'success',
