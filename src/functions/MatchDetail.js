@@ -3,11 +3,9 @@ const matchDetailModel = models.match_detail
 const playerModel = models.player
 const heroModel = models.hero
 const teamModel = models.team
+const matchModel = models.match_result
 const validator = require('validator')
-const Player = require('./Player')
 const Hero = require('./Hero')
-const MatchResult = require('./MatchResult')
-const Team = require('./Team')
 
 const self = (module.exports = {
   getMatchDetail: async (req, matchDetailId = '') => {
@@ -15,7 +13,9 @@ const self = (module.exports = {
 
     matchDetailModel.hasOne(playerModel, { foreignKey: "pId", sourceKey: "pId" })
     matchDetailModel.hasOne(heroModel, { foreignKey: "hId", sourceKey: "hId" })
+    matchDetailModel.hasOne(matchModel, { foreignKey: "mrId", sourceKey: "mrId" })
     playerModel.hasOne(teamModel, { foreignKey: "tId", sourceKey: "tId" })
+
     return matchDetailModel.findAll({
       include: [
         {
@@ -31,6 +31,10 @@ const self = (module.exports = {
         {
           model: heroModel,
           required: false
+        },
+        {
+          model: matchModel,
+          required: true
         }
       ],
       where: {
@@ -49,6 +53,8 @@ const self = (module.exports = {
         let row = {
           matchDetailId: data.mdId,
           matchId: data.mrId,
+          matchGameName: data.match_result.mrGameName,
+          matchDate: data.match_result.mrDate,
           playerId: data.pId,
           heroId: data.hId ? data.hId : '',
           playerName: data.player.pName,

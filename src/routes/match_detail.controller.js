@@ -3,6 +3,16 @@ const router = express.Router()
 const MatchDetail = require('../functions/MatchDetail')
 const Match = require('../functions/MatchResult')
 
+router.get('/', async (req, res) => {
+  let results = await MatchDetail.getMatchDetail(req)
+  // results = await MatchDetail.setMatchDetail(results)
+  res.status(200).send({
+    status: 200,
+    message: 'success',
+    results
+  })
+})
+
 router.get('/:matchId', [Match.checkError(true, false)], async (req, res) => {
   let results = await MatchDetail.getMatchDetail(req)
   results = await MatchDetail.setMatchDetail(results)
