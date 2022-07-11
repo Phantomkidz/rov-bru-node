@@ -93,18 +93,6 @@ const self = (module.exports = {
         }
       }
 
-      // if(req.method === 'DELETE' && matchId) {
-      //   const checkDetail = await matchDetailModel.findOne({
-      //     where: {
-      //       mrId: matchId
-      //     }
-      //   })
-
-      //   if(checkDetail) {
-      //     errorMessage = "This match result can't delete."
-      //   }
-      // }
-
       if(errorMessage) {
         res.status(400).send({
           status: 400,

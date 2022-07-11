@@ -77,12 +77,12 @@ const self = (module.exports = {
         } else if(!validator.isInt(schoolId === undefined ? '' : schoolId.toString())) {
           errorMessage = "The school id field is require."
         }
-        if(teamName && teamData) {
+        if(teamName) {
           let checkUnique = await teamModel.findOne({
             where: {
               tName: teamName,
               [Op.and]: [
-                teamId ? {
+                teamId && req.method == 'PUT' ? {
                   tId: {
                     [Op.ne]: teamId
                   }

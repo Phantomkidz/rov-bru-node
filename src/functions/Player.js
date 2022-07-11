@@ -93,12 +93,12 @@ const self = (module.exports = {
           }
         }
 
-        if(playerName && playerData) {
+        if(playerName) {
           let checkUnique = await playerModel.findOne({
             where: {
               pName: playerName,
               [Op.and]: [
-                playerId ? {
+                playerId && req.method == 'PUT' ? {
                   pId: {
                     [Op.ne]: playerId
                   }

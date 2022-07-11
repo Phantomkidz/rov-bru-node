@@ -47,12 +47,13 @@ const self = (module.exports = {
 
       if(withBody) {
         let { schoolName, schoolCity } = req.body
+        console.log(schoolName)
         if(validator.isEmpty(schoolName === undefined ? '' : schoolName, { ignore_whitespace: true })) {
           errorMessage = "The school name field is require."
         } else if(validator.isEmpty(schoolCity === undefined ? '' : schoolCity, { ignore_whitespace: true })) {
           errorMessage = "The city field is require."
         }
-        if(schoolName && schoolData) {
+        if(schoolName) {
           let checkUnique = await schoolModel.findOne({
             where: {
               sName: schoolName,
