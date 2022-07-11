@@ -53,6 +53,7 @@ const self = (module.exports = {
         let row = {
           matchDetailId: data.mdId,
           matchId: data.mrId,
+          matchRound: data.match_result.mrRound,
           matchGameName: data.match_result.mrGameName,
           matchDate: data.match_result.mrDate,
           playerId: data.pId,
