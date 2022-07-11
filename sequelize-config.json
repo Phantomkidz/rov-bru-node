@@ -1,0 +1,7 @@
+{
+  "storage": "./bru-rov.sqlite",
+  "freezeTableName": true,
+  "timestamps": false,
+  "createdAt": false,
+  "updateAt": false
+}
