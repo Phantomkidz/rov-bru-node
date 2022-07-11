@@ -57,7 +57,7 @@ const self = (module.exports = {
             where: {
               sName: schoolName,
               [Op.and]: [
-                schoolId ? {
+                schoolId && req.method == 'PUT' ? {
                   sId: {
                     [Op.ne]: schoolId
                   }
