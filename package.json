@@ -1,10 +1,10 @@
 {
-  "name": "rov-bru-service",
+  "name": "rov-bru-node",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "gen-model": "sequelize-auto -h localhost -u admin@bru -x ZS6eAq1hk82yGX --dialect sqlite -c sequelize-config.json -o \"./src/models\" --caseProp c"
   },
@@ -16,8 +16,8 @@
     "express": "^4.18.1",
     "helmet": "^5.1.0",
     "lodash": "^4.17.21",
-    "moment": "^2.29.3",
-    "nodemon": "^2.0.18",
+    "moment": "^2.29.4",
+    "nodemon": "^2.0.19",
     "pm2": "^5.2.0",
     "sequelize": "5.22.5",
     "sqlite3": "^5.0.8",

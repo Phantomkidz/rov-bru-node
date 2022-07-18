@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  bru-api-prod:
+    build: .
+    image: rov-bru-node:prod
+    container_name: bru-api-prod
+    restart: always
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - rov-bru-node
+    ports:
+      - 4500:3800
+    command: npm start
+networks:
+  rov-bru-node:
+    name: rov-bru-node-prod
+    driver: bridge
