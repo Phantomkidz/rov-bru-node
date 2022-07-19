@@ -7,7 +7,7 @@ const { fn } = require('./util')
 const API_VERSION = '/api/'
 
 const methodAccept = ['GET', 'PUT', 'POST', 'PATCH', 'DELETE']
-const whitelist = ['http://localhost:1412']
+const whitelist = ['http://localhost:8106']
 
 // if(process.env.APP_ENV === "development") {
 //   whitelist.push('http://localhost:1412')
