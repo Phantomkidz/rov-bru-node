@@ -1,5 +1,8 @@
 const moment = require('moment')
-const trustUrl = ['http://localhost:1412']
+const trustUrl = [
+  'http://localhost:8091',
+  'http://localhost:8080',
+]
 
 // if(process.env.APP_ENV === "development") {
 //   trustUrl.push('http://localhost:1412')
