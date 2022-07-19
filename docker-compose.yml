@@ -13,7 +13,7 @@ services:
       - rov-bru-node
     ports:
       - 4500:3800
-    command: npm start
+    command: yarn run start
 networks:
   rov-bru-node:
     name: rov-bru-node-prod

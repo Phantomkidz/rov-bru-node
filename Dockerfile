@@ -6,7 +6,14 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-RUN npm install
+# update and install dependency
+RUN apk update && apk upgrade
+
+# Install yarn
+RUN apk add yarn
+
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn install
 
 COPY . .
