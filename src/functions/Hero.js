@@ -51,12 +51,12 @@ const self = (module.exports = {
           errorMessage = "The team name field is require."
         }
 
-        if(heroName && heroData) {
+        if(heroName) {
           let checkUnique = await heroModel.findOne({
             where: {
               hName: heroName,
               [Op.and]: [
-                heroId ? {
+                heroId && req.method == 'PUT' ? {
                   hId: {
                     [Op.ne]: heroId
                   }
