@@ -41,6 +41,7 @@ const self = (module.exports = {
             return {
               playerId: item.pId,
               playerName: item.pName,
+              playerInGameName: item.pIngameName,
               playerPosition: item.pPosition,
             }
           })
