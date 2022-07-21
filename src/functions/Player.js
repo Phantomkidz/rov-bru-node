@@ -93,10 +93,10 @@ const self = (module.exports = {
           }
         }
 
-        if(playerName) {
+        if(playerIngameName) {
           let checkUnique = await playerModel.findOne({
             where: {
-              pName: playerName,
+              pIngameName: playerIngameName,
               [Op.and]: [
                 playerId && req.method == 'PUT' ? {
                   pId: {
@@ -108,7 +108,7 @@ const self = (module.exports = {
           })
 
           if(checkUnique) {
-            errorMessage = "The hero name field is already exits."
+            errorMessage = "The player in game name field is already exits."
           }
         }
       }
