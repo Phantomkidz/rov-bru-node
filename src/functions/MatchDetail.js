@@ -20,7 +20,7 @@ const self = (module.exports = {
       include: [
         {
           model: playerModel,
-          required: true,
+          required: false,
           include: [
             {
               model: teamModel,
@@ -56,13 +56,13 @@ const self = (module.exports = {
           matchRound: data.match_result.mrRound,
           matchGameName: data.match_result.mrGameName,
           matchDate: data.match_result.mrDate,
-          playerId: data.pId,
+          playerId: data.pId ? data.pId : '',
           heroId: data.hId ? data.hId : '',
-          playerName: data.player.pName,
-          playerIngameName: data.player.pIngameName ? data.player.pIngameName : '',
-          playerPosition: data.player.pPosition ? data.player.pPosition : '',
+          playerName: data.player ? data.player.pName : '',
+          playerIngameName: data.player ? data.player.pIngameName : '',
+          playerPosition: data.player ? data.player.pPosition : '',
           heroName: data.hero ? data.hero.hName : '',
-          teamName: data.player.team.tName,
+          teamName: data.player ? data.player.team.tName : '',
           makeDamage: data.mdMakeDamage,
           getDamage: data.mdGetDamage,
           teamFight: data.mdTeamFight,

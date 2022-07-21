@@ -130,7 +130,7 @@ const self = (module.exports = {
         mdScore: 0.0,
       }
 
-      const teamDefault = []
+      const matchDetailCreate = []
 
       for(let i = 1; i <= 10; i++) {
         if(i <= 5) {
@@ -146,7 +146,6 @@ const self = (module.exports = {
         }
       }
 
-      const matchDetailCreate = teamDefault
       await matchDetailModel.bulkCreate(matchDetailCreate)
     })
   },
