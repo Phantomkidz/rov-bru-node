@@ -140,10 +140,11 @@ const self = (module.exports = {
   },
 
   update: req => {
-    const { heroId, makeDamage, getDamage, teamFight, amountKill, amountAssist, amountDead, money, score } = req.body
+    const { heroId, playerId, makeDamage, getDamage, teamFight, amountKill, amountAssist, amountDead, money, score } = req.body
     const { matchDetailId } = req.params
     return matchDetailModel.update({
       hId: heroId,
+      pId: playerId,
       mdMakeDamage: makeDamage,
       mdGetDamage: getDamage,
       mdTeamFight: teamFight,
