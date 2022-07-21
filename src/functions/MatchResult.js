@@ -123,6 +123,7 @@ const self = (module.exports = {
       ])
 
       let defaultDetail = {
+        mrId: result.mrId,
         mdMakeDamage: 0,
         mdGetDamage: 0,
         mdTeamFight: 0,
@@ -136,8 +137,6 @@ const self = (module.exports = {
       const redTeamPlayer = redTeamList[0].players.map(data => {
         return {
           ...defaultDetail,
-          pId: data.pId,
-          mrId: result.mrId,
           mdTeamType: 'R',
 
         }
@@ -145,8 +144,6 @@ const self = (module.exports = {
       const blueTeamPlayer = blueTeamList[0].players.map(data => {
         return {
           ...defaultDetail,
-          pId: data.pId,
-          mrId: result.mrId,
           mdTeamType: 'B'
         }
       })
