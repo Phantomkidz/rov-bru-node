@@ -117,10 +117,6 @@ const self = (module.exports = {
       mrScoreB: scoreBlueTeam,
       createDate: fn.db2datetime(new Date())
     }).then(async result => {
-      const [redTeamList, blueTeamList] = await Promise.all([
-        Team.getTeam(result.mrRedTeam),
-        Team.getTeam(result.mrBlueTeam)
-      ])
 
       let defaultDetail = {
         mrId: result.mrId,
@@ -134,21 +130,23 @@ const self = (module.exports = {
         mdScore: 0.0,
       }
 
-      const redTeamPlayer = redTeamList[0].players.map(data => {
-        return {
-          ...defaultDetail,
-          mdTeamType: 'R',
+      const teamDefault = []
 
+      for(let i = 1; i <= 10; i++) {
+        if(i <= 5) {
+          teamDefault.push({
+            ...defaultDetail,
+            mdTeamType: 'R'
+          })
+        } else {
+          teamDefault.push({
+            ...defaultDetail,
+            mdTeamType: 'B'
+          })
         }
-      })
-      const blueTeamPlayer = blueTeamList[0].players.map(data => {
-        return {
-          ...defaultDetail,
-          mdTeamType: 'B'
-        }
-      })
+      }
 
-      const matchDetailCreate = [...redTeamPlayer, ...blueTeamPlayer]
+      const matchDetailCreate = teamDefault
       await matchDetailModel.bulkCreate(matchDetailCreate)
     })
   },
